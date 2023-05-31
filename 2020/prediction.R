@@ -15,18 +15,17 @@ library("ROCR")
 library(caret)
 library("gbm")
 library("Biostrings")
-source("/Users/maryam/Desktop/Research/NewFlu/GISaid/code/Github/code/general_functions.R")
-source("/Users/maryam/Desktop/Research/NewFlu/GISaid/code/Github/code/Tree_Statistics.R")
-source("/Users/maryam/Desktop/Research/NewFlu/GISaid/code/Github/code/VaccineDist.R")
+source("~/code/general_functions.R")
+source("~/code/Tree_Statistics.R")
+source("~/code/VaccineDist.R")
 ##IMPORTANT##########################
 ###Make sure to switch the lables of the model if you swapped the labels during the training!
 ###########################################################
-setwd("/Users/maryam/Desktop/Research/NewFlu/GISaid/code/Github/2020/")
 #train the model
-data = read.csv("mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data = read.csv("~/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 length(which(data$outcome==1))/nrow(data)
-Aux_data = read.csv("Aux_dataNA2020.csv")
+Aux_data = read.csv("~/Aux_dataNA2020.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 verypast_ind = which(as.Date(as.Date(Aux_data$Date,"%m/%d/%Y")) <="2010-1-1")
@@ -65,7 +64,7 @@ length(data_tip)
 which(is.na(data),arr.ind = TRUE)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #divide the data to test -> test on a clade (102376,76876) and train on other clades
-load("flutree2020-2.Rdata")
+load("~/flutree2020-2.Rdata")
 test_subtree = extract.clade(tree,76876)
 test_subtree
 length(test_subtree$tip.label)
@@ -93,7 +92,7 @@ nrow(test)/(nrow(train)+nrow(test))
 
 svm.fit = svm(data = train, outcome ~ .,kernel ="polynomial",  scale =FALSE,gamma = 0.005,cost =128,degree=5,coef0=0)
 ###########################################################
-data_p = read.csv("myfutdata_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data_p = read.csv("~/myfutdata_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data_p = data_p[,2:ncol(data_p)]
 length(which(data_p$outcome==1))/nrow(data_p)
 fut_tip = data_p$tip
@@ -106,7 +105,7 @@ successful_tips_ind  = which(SVM_pred == 1)
 length(successful_tips_ind )
 successful_tips = fut_tip[successful_tips_ind]
 #read the epitope distance of the tips
-epi_Dis = read.csv("/Users/maryam/Desktop/Research/NewFlu/GISaid/code/Github/General_data/epitopeDis.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+epi_Dis = read.csv("~/epitopeDis.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 epi_Dis = epi_Dis[,2:ncol(epi_Dis)]
 tip_ind = match(successful_tips,epi_Dis[,3])
 length(which(is.na(tip_ind)))
