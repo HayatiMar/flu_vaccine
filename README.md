@@ -10,6 +10,15 @@ This folder contains all the codes to compute the features, train and test the m
 
 These folders contain all the influenza trees and other data for the years 2016 t0 2020 respectively. 
 
+# General_data
+
+This folder contains general data that is not specific to any particular year.  
+
+# Figures
+
+This folder contains all the figures of the paper.
+
+
 
 
 
