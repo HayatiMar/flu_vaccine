@@ -12,7 +12,7 @@ source("~/code/general_functions.R")
 data = read.csv("~/2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 #length(which(data$outcome==1))/nrow(data)
-Aux_data = read.csv("~/Aux_dataNA2020.csv")
+Aux_data = read.csv("~/2020/Aux_dataNA2020.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #we remove the very past data since we are not sure about their labels!
