@@ -8,7 +8,7 @@ This folder contains all the codes to compute the features, train and test the m
 
 # 2016-2020
 
-These folders contain all the influenza trees and other data for the years 2016 t0 2020 respectively. 
+These folders contain all the influenza trees and other data for the years 2016 to 2020 respectively. 
 
 # General_data
 
