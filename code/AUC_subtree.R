@@ -110,7 +110,7 @@ par(new=TRUE)
 data = read.csv("~/2019/mycurrentdata2019_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 length(which(data$outcome==1))/nrow(data)
-Aux_data = read.csv("~/Aux_dataNA2019.csv")
+Aux_data = read.csv("~/2019/Aux_dataNA2019.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 verypast_ind = which(as.Date(as.Date(Aux_data$Date,"%m/%d/%Y")) <="2009-1-1")
@@ -205,7 +205,7 @@ par(new=TRUE)
 data = read.csv("~/2018/mycurrentdata2018_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 length(which(data$outcome==1))/nrow(data)
-Aux_data = read.csv("~/Aux_dataNA2018.csv")
+Aux_data = read.csv("~/2018/Aux_dataNA2018.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 verypast_ind = which(as.Date(as.Date(Aux_data$Date,"%m/%d/%Y")) <="2008-1-1")
@@ -298,7 +298,7 @@ par(new=TRUE)
 data = read.csv("~/2017/mycurrentdata2017_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 length(which(data$outcome==1))/nrow(data)
-Aux_data = read.csv("Aux_dataNA2017.csv")
+Aux_data = read.csv("~/2017/Aux_dataNA2017.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 verypast_ind = which(as.Date(as.Date(Aux_data$Date,"%m/%d/%Y")) <="2007-1-1")
@@ -395,7 +395,7 @@ data = read.csv("~/2016/mycurrentdata2016_NA.csv",sep= ",",header=T,stringsAsFac
 data = data[,2:ncol(data)]
 colnames(data)
 length(which(data$outcome==1))/nrow(data)
-Aux_data = read.csv("Aux_dataNA2016.csv")
+Aux_data = read.csv("~/2016/Aux_dataNA2016.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 verypast_ind = which(as.Date(as.Date(Aux_data$Date,"%m/%d/%Y")) <="2006-1-1")
