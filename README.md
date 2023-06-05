@@ -36,6 +36,11 @@ This folder contains general data that is not specific to any particular year.
 
 This folder contains all the figures of the paper.
 
+# Data Access
+
+As per GISAID access terms, the sequences used in this study are not reproduced here, but may be downloaded from the GISAID server. 
+Folder 'gisaid_acknowledge_tables.zip' contains accession numbers of all sequences used, and references to their submitting laboratories whom we gratefully thank for providing the data for this study.
+
 
 
 
