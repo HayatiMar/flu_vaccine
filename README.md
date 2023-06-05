@@ -9,11 +9,17 @@ The seasonal influenza (flu) vaccine is designed to protect against those influe
 This folder contains all the codes to compute the features, train and test the machine learing models, predict the next year's flu vaccine candidates, and generate the plots for the paper. 
  
 "AUC_subtree.R" code to make the SVM models for each year.
+
 "AllClassifiers.R" code to compare different binary classifiers on each year datasets.
+
 "Data_5_1_3.R" code to compute the features.
+
 "LBI_cor.R" code to calculate the correlation between LBI and diversificationRate statistic (tree-based).
+
 "LBI_cor_tip.R" code to calculate the correlation between LBI and diversificationRate statistic. 
+
 "Tree_Statistics.R" code to compute tree shape statistics.
+
 "VaccineDist.R" code to compute the distance between our suggested candidates and the next year's circulating sequences.
 
 
