@@ -35,7 +35,7 @@ PTipLabels_Data[length(PTipLabels_Data)]
 tree_lab[[length(PTipLabels_Data)]]
 Pdata[length(PTipLabels_Data)]
 
-Aux_data = read.csv("~/2020/Aux_data.csv")
+Aux_data = read.csv("~/2020/Aux_dataHA2020.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 
 ind = match(tree_lab,Aux_data[,1])
