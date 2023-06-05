@@ -54,7 +54,7 @@ train = train[sample(seq_len(nrow(train)), size = nrow(train)),]
 svm.fit = svm(data = train, outcome ~ .,kernel ="polynomial",  scale =FALSE,gamma = 0.005,cost =128,degree=5,coef0=0)
 
 # Load future data
-data_p = read.csv("~/2020/myfutdata_NAnew.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data_p = read.csv("~/2020/myfutdata_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data_p = data_p[,2:ncol(data_p)]
 fut_tip = data_p$tip
 data_p = data_p[,-80]
