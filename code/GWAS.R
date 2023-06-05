@@ -70,7 +70,7 @@ colnames(prediction_success)<-c("Name","Success")
 write.table(prediction_success,"SuccessfulStrains.txt",row.names = F,quote = F,sep = "\t")
 
 # Run GWAS HA
-fastafile<-"Sequences/HA_aligned_clean.fasta"
+fastafile<-"HA_aligned_clean.fasta"
 load("../2020/flutree2020-2.Rdata")
 phenofile<-read.table("SuccessfulStrainsNew.txt",header = T)
 
