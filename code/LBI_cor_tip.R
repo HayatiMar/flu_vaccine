@@ -1,3 +1,5 @@
+library(devtools)
+install_git("http://github.com/bdearlove/treeImbalance.git")
 library(treeImbalance)
 #function to compute DR
 diversificationRate <- function(tree) {

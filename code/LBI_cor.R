@@ -1,5 +1,5 @@
-#library(devtools)
-#install_git("http://github.com/bdearlove/treeImbalance.git")
+library(devtools)
+install_git("http://github.com/bdearlove/treeImbalance.git")
 library(treeImbalance)
 source("~/Github/Tree_Statistics.R")
 library(phyloTop)
