@@ -1,6 +1,14 @@
 library(devtools)
 install_git("http://github.com/bdearlove/treeImbalance.git")
 library(treeImbalance)
+source("~/Github/Tree_Statistics.R")
+library(phyloTop)
+install.packages("remotes")
+remotes::install_github("Leonardini/treeCentrality")
+library(treeCentrality)
+library(corrplot)
+library(castor)
+
 #function to compute DR
 diversificationRate <- function(tree) {
   paths <- nodepath(tree)
