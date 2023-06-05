@@ -14,7 +14,7 @@ This folder contains all the codes to compute the features, train and test the m
 
 "Data_5_1_3.R" code to compute the features.
 
-"LBI_cor.R" code to calculate the correlation between LBI and diversificationRate statistic (tree-based).
+"LBI_cor.R" code to calculate the correlation between LBI and other tree shape statistics.
 
 "LBI_cor_tip.R" code to calculate the correlation between LBI and diversificationRate statistic. 
 
