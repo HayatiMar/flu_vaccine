@@ -71,7 +71,7 @@ write.table(prediction_success,"SuccessfulStrains.txt",row.names = F,quote = F,s
 
 # Run GWAS HA
 fastafile<-"Sequences/HA_aligned_clean.fasta"
-load("../trees/flutree2020-2.Rdata")
+load("../2020/flutree2020-2.Rdata")
 phenofile<-read.table("SuccessfulStrainsNew.txt",header = T)
 
 dna <- read.FASTA(file = fastafile,type = "DNA")
