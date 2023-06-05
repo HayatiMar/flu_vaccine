@@ -3,10 +3,11 @@ install_git("http://github.com/bdearlove/treeImbalance.git")
 library(treeImbalance)
 source("~/Github/Tree_Statistics.R")
 library(phyloTop)
-#install.packages("remotes")
-#remotes::install_github("Leonardini/treeCentrality")
+install.packages("remotes")
+remotes::install_github("Leonardini/treeCentrality")
 library(treeCentrality)
 library(corrplot)
+library(castor)
 
 #compute LBI function
 #This calculates the local branching index (LBI), defined by Neher, Russell and Shraiman (2014) 
