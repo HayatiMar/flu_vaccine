@@ -11,8 +11,8 @@ library(seqinr)
 source("~/Tree_Statistics.R")
 source("~/general_functions.R")
 
-load("~/flutreeHA2020-2.Rdata")
-Aux_data = read.csv("Aux_dataHA2020.csv")
+load("~/2020/flutreeHA2020-2.Rdata")
+Aux_data = read.csv("~/2020/Aux_dataHA2020.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 treeinds=match(tree$tip.label, Aux_data[,1])
 Aux_data = Aux_data[treeinds,]
