@@ -10,10 +10,10 @@ source("~/code/Tree_Statistics.R")
 source("~/code/general_functions.R")
 #data containing tips before 28/2/2017
 
-data = read.csv("2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data = read.csv("../2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 #length(which(data$outcome==1))/nrow(data)
-Aux_data = read.csv("Aux_dataNA2020.csv")
+Aux_data = read.csv("../2020/Aux_dataNA2020.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #we remove the very past data since we are not sure about their labels!
@@ -52,7 +52,7 @@ length(data_tip)
 which(is.na(data),arr.ind = TRUE)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #divide the data to test and train -> test on a clade (76876) and train on other clades
-load("~/2020/flutree2020-2.Rdata")
+load("/2020/flutree2020-2.Rdata")
 test_subtree = extract.clade(tree,76876)
 test_subtree
 length(test_subtree$tip.label)
@@ -109,7 +109,7 @@ par(new=TRUE)
 #==============================================================================================
 #==============================================================================================
 #experiments with all the features except NA
-data = read.csv("~/2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data = read.csv("/2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 data |>
   select(c(-ends_with("_NA"),"outcome")) -> data
@@ -151,7 +151,7 @@ length(data_tip)
 which(is.na(data),arr.ind = TRUE)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #divide the data to test and train -> test on a clade (76876) and train on other clades
-load("/2020/flutree2020-2.Rdata")
+load("../2020/flutree2020-2.Rdata")
 test_subtree = extract.clade(tree,76876)
 test_subtree
 length(test_subtree$tip.label)
@@ -208,7 +208,7 @@ par(new=TRUE)
 #==============================================================================================
 #==============================================================================================
 #experiments with all the features except epitope
-data = read.csv("/2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data = read.csv("../2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 data |>
   select(c(-matches("epitope"),"outcome")) -> data
