@@ -4,7 +4,7 @@ library(seqinr)
 #install.packages("alakazam")
 library(alakazam)
 
-load("~/2020/flutree2020-2.Rdata")  
+load("2020/flutree2020-2.Rdata")  
 tree_lab=tree$tip.label
 LR=sapply(tree_lab, function(x) strsplit(x,"--"))
 R_Lab = sapply(LR, function(x) x[2])
@@ -13,7 +13,7 @@ head(R_Lab)
 allHeights=node.depth.edgelength(tree)
 hdata=data.frame(tiplab=tree$tip.label, height=allHeights[1:length(tree$tip.label)])
 
-Pdata=read.fasta("~/General_data/Pdata.fasta",seqtype="AA")
+Pdata=read.fasta("General_data/Pdata.fasta",seqtype="AA")
 PTipLabels_Data = names(Pdata)
 LP=sapply(PTipLabels_Data, function(x) strsplit(x,"--"))
 P_Lab = sapply(LP, function(x) x[2])
@@ -35,7 +35,7 @@ PTipLabels_Data[length(PTipLabels_Data)]
 tree_lab[[length(PTipLabels_Data)]]
 Pdata[length(PTipLabels_Data)]
 
-Aux_data = read.csv("~/2020/Aux_dataHA2020.csv")
+Aux_data = read.csv("2020/Aux_dataHA2020.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 
 ind = match(tree_lab,Aux_data[,1])
@@ -117,7 +117,7 @@ getVaccineDist <- function(mytip, Aux_data,hdata, Pdata, year = 2019) {
   return(res)
 }
 
-Pdata_2020=read.fasta("~/General_data/Pdata_2020-21.fasta",seqtype="AA")
+Pdata_2020=read.fasta("General_data/Pdata_2020-21.fasta",seqtype="AA")
 getVaccineDist_new <- function(mytip, Aux_data,hdata, Pdata,Pdata_2020, year = 2020) {
   if (is.character(mytip)) { tipind=match(mytip, hdata$tiplab)} else {tipind=mytip}
   tipTime=hdata$height[tipind]

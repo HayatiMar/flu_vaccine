@@ -2,16 +2,16 @@ require(e1071)
 require(corrplot)
 require(ape)
 require(phytools)
-source("~/code/Tree_Statistics.R")
-source("~/code/general_functions.R")
-source("~/code/msvmRFE.R")
+source("code/Tree_Statistics.R")
+source("code/general_functions.R")
+source("code/msvmRFE.R")
 
 # Load data
-data = read.csv("~/2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data = read.csv("2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
-Aux_data = read.csv("~2020/Aux_dataNA2020.csv")
+Aux_data = read.csv("2020/Aux_dataNA2020.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
-load("~/2020/flutree2020-2.Rdata")
+load("2020/flutree2020-2.Rdata")
 
 ## Remove strains before 2010
 verypast_name = Aux_data[which(as.Date(as.Date(Aux_data$Date,"%m/%d/%Y")) <="2010-1-1") ,1]

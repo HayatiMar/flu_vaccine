@@ -1,7 +1,7 @@
 library(devtools)
 install_git("http://github.com/bdearlove/treeImbalance.git")
 library(treeImbalance)
-source("~/Github/Tree_Statistics.R")
+source("code/Tree_Statistics.R")
 library(phyloTop)
 install.packages("remotes")
 remotes::install_github("Leonardini/treeCentrality")
@@ -70,7 +70,7 @@ corrplot(dd, type = "upper", order = "hclust",
          tl.col = "black", tl.srt = 45,tl.cex = 0.6)
 #=======================================================================================
 #HA tree
-load("~/2020/flutree2020-2.Rdata")
+load("2020/flutree2020-2.Rdata")
 set.seed(1234)
 df_features = numeric()
 for (i in c(1:200)) {
@@ -93,7 +93,7 @@ corrplot(dd, type = "upper", order = "hclust",
          tl.col = "black", tl.srt = 45,tl.cex = 0.6)
 #=======================================================================================
 #NA tree
-load("~/2020flutree_NA_2020-2.Rdata")
+load("2020/flutree_NA_2020-2.Rdata")
 set.seed(1234)
 df_features = numeric()
 for (i in c(1:200)) {

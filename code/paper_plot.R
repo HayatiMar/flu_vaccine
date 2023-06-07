@@ -9,7 +9,7 @@ library(viridis)
 library(grid)
 
 
-tab=read.csv("~/General_data/vaccine_subtree.csv")
+tab=read.csv("General_data/vaccine_subtree.csv")
 colnames(tab)=c("Year","Min","Max","Median","WHO")
 tab_WHO = tab[,c(1,5)]
 df_p=as.data.frame(tab)
@@ -24,7 +24,7 @@ p+theme(plot.title = element_text(size = 12, face = "bold",hjust = 0.5,lineheigh
         legend.position="bottom", legend.title = element_blank())
 #=========================================================================================
 #violin plot
-data = read.csv("~/General_data/var_data.csv")
+data = read.csv("General_data/var_data.csv")
 data = data[,2:ncol(data)]
 
 data$name = as.factor(data$name)

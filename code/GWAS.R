@@ -4,15 +4,15 @@ require(ape)
 require(phytools)
 require(ROCR)
 require(seqinr)
-source("~/code/Tree_Statistics.R")
-source("~/code/general_functions.R")
+source("code/Tree_Statistics.R")
+source("code/general_functions.R")
 
 # Load data
-data = read.csv("~/2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data = read.csv("2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
-Aux_data = read.csv("~2020/Aux_dataNA2020.csv")
+Aux_data = read.csv("2020/Aux_dataNA2020.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
-load("~/2020/flutree2020-2.Rdata")
+load("2020/flutree2020-2.Rdata")
 
 ## Remove strains before 2010
 verypast_name = Aux_data[which(as.Date(as.Date(Aux_data$Date,"%m/%d/%Y")) <="2010-1-1") ,1]
@@ -54,7 +54,7 @@ train = train[sample(seq_len(nrow(train)), size = nrow(train)),]
 svm.fit = svm(data = train, outcome ~ .,kernel ="polynomial",  scale =FALSE,gamma = 0.005,cost =128,degree=5,coef0=0)
 
 # Load future data
-data_p = read.csv("~/2020/myfutdata_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data_p = read.csv("2020/myfutdata_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data_p = data_p[,2:ncol(data_p)]
 fut_tip = data_p$tip
 data_p = data_p[,-80]
@@ -71,7 +71,7 @@ write.table(prediction_success,"SuccessfulStrains.txt",row.names = F,quote = F,s
 
 # Run GWAS HA
 fastafile<-"HA_aligned_clean.fasta"
-load("../2020/flutree2020-2.Rdata")
+load("2020/flutree2020-2.Rdata")
 phenofile<-read.table("SuccessfulStrainsNew.txt",header = T)
 
 dna <- read.FASTA(file = fastafile,type = "DNA")
@@ -90,7 +90,7 @@ out_HA <- treeWAS(snps = mat,
 
 # Run GWAS NA
 fastafile<-"NA_aligned_clean.fasta" ## Download all NA sequences from GISAID
-load("~/2020/flutree2020-2.Rdata")
+load("2020/flutree2020-2.Rdata")
 phenofile<-read.table("SuccessfulStrains.txt",header = T)
 
 dna <- read.FASTA(file = fastafile,type = "DNA")

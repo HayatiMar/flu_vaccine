@@ -1,7 +1,7 @@
 library(devtools)
 install_git("http://github.com/bdearlove/treeImbalance.git")
 library(treeImbalance)
-source("~/Github/Tree_Statistics.R")
+source("code/Tree_Statistics.R")
 library(phyloTop)
 install.packages("remotes")
 remotes::install_github("Leonardini/treeCentrality")
@@ -36,7 +36,7 @@ DR_tr1 = diversificationRate(tr1)
 plot(LBI_tr1,DR_tr1)
 
 #compute LBI and DR for HA tree.
-load("~/2020/flutree2020-2.Rdata")
+load("2020/flutree2020-2.Rdata")
 #I got error when running lbi on the tree due to the size of the tree so I applied it on a subtree.
 tr = extract.clade(tree,76876)
 #mean pairwise distance in HA is 23.7
@@ -51,7 +51,7 @@ DR_HA_tip = DR_HA_tip[-ind]
 plot(LBI_HA_tip,DR_HA_tip)
 #compute LBI and DR for NA tree.
 
-load("~/2020/flutree_NA_2020-2.Rdata")
+load("2020/flutree_NA_2020-2.Rdata")
 tr = extract.clade(tree,59400)
 #mean pairwise distance in NA is 24.3
 LBI_NA = lbi(tr ,tau = 0.0625*24.3)

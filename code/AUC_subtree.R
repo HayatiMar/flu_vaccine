@@ -6,13 +6,13 @@ library("ROCR")
 library(caret)
 library("gbm")
 library("Boruta")
-source("~/code/Tree_Statistics.R")
-source("~/code/general_functions.R")
+source("code/Tree_Statistics.R")
+source("code/general_functions.R")
 #data containing tips before 28/2/2017
-data = read.csv("~/2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data = read.csv("2020/mycurrentdata2020_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 #length(which(data$outcome==1))/nrow(data)
-Aux_data = read.csv("~/2020/Aux_dataNA2020.csv")
+Aux_data = read.csv("2020/Aux_dataNA2020.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #we remove the very past data since we are not sure about their labels!
@@ -51,7 +51,7 @@ length(data_tip)
 which(is.na(data),arr.ind = TRUE)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #divide the data to test and train -> test on a clade (76876) and train on other clades
-load("~/2020/flutree2020-2.Rdata")
+load("2020/flutree2020-2.Rdata")
 test_subtree = extract.clade(tree,76876)
 test_subtree
 length(test_subtree$tip.label)
@@ -107,10 +107,10 @@ par(new=TRUE)
 #=========================================================================================
 #2019
 #=========================================================================================
-data = read.csv("~/2019/mycurrentdata2019_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data = read.csv("2019/mycurrentdata2019_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 length(which(data$outcome==1))/nrow(data)
-Aux_data = read.csv("~/2019/Aux_dataNA2019.csv")
+Aux_data = read.csv("2019/Aux_dataNA2019.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 verypast_ind = which(as.Date(as.Date(Aux_data$Date,"%m/%d/%Y")) <="2009-1-1")
@@ -151,7 +151,7 @@ data_tip = data_tip[-outliers]
 length(data_tip)
 which(is.na(data),arr.ind = TRUE)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-load("~/2019/flutreeHA2019-2.Rdata")  
+load("2019/flutreeHA2019-2.Rdata")  
 test_subtree = extract.clade(tree,69893)
 test_subtree
 length(test_subtree$tip.label)
@@ -202,10 +202,10 @@ par(new=TRUE)
 #=========================================================================================
 #2018
 #=========================================================================================
-data = read.csv("~/2018/mycurrentdata2018_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data = read.csv("2018/mycurrentdata2018_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 length(which(data$outcome==1))/nrow(data)
-Aux_data = read.csv("~/2018/Aux_dataNA2018.csv")
+Aux_data = read.csv("2018/Aux_dataNA2018.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 verypast_ind = which(as.Date(as.Date(Aux_data$Date,"%m/%d/%Y")) <="2008-1-1")
@@ -245,7 +245,7 @@ length(data_tip)
 which(is.na(data),arr.ind = TRUE)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-load("~/2018/flutreeHA2018-2.Rdata")  
+load("2018/flutreeHA2018-2.Rdata")  
 test_subtree = extract.clade(tree,60528)
 test_subtree
 length(test_subtree$tip.label)
@@ -295,10 +295,10 @@ par(new=TRUE)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #2017
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-data = read.csv("~/2017/mycurrentdata2017_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data = read.csv("2017/mycurrentdata2017_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 length(which(data$outcome==1))/nrow(data)
-Aux_data = read.csv("~/2017/Aux_dataNA2017.csv")
+Aux_data = read.csv("2017/Aux_dataNA2017.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 verypast_ind = which(as.Date(as.Date(Aux_data$Date,"%m/%d/%Y")) <="2007-1-1")
@@ -341,7 +341,7 @@ length(data_tip)
 which(is.na(data),arr.ind = TRUE)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-load("~/2017/flutreeHA2017-2.Rdata")  
+load("2017/flutreeHA2017-2.Rdata")  
 test_subtree = extract.clade(tree,47472)
 test_subtree
 length(test_subtree$tip.label)
@@ -391,11 +391,11 @@ par(new=TRUE)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #2016  
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-data = read.csv("~/2016/mycurrentdata2016_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
+data = read.csv("2016/mycurrentdata2016_NA.csv",sep= ",",header=T,stringsAsFactors=FALSE)
 data = data[,2:ncol(data)]
 colnames(data)
 length(which(data$outcome==1))/nrow(data)
-Aux_data = read.csv("~/2016/Aux_dataNA2016.csv")
+Aux_data = read.csv("2016/Aux_dataNA2016.csv")
 Aux_data = Aux_data[,2:ncol(Aux_data)]
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 verypast_ind = which(as.Date(as.Date(Aux_data$Date,"%m/%d/%Y")) <="2006-1-1")
@@ -437,7 +437,7 @@ length(data_tip)
 which(is.na(data),arr.ind = TRUE)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-load("~/2016/flutreeHA2016-2.Rdata")  
+load("2016/flutreeHA2016-2.Rdata")  
 test_subtree = extract.clade(tree,30199)
 test_subtree
 length(test_subtree$tip.label)
