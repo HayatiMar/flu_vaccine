@@ -51,8 +51,9 @@ train<-cbind(train$outcome,train[,1:79])
 
 feature_selection<-svmRFE(train, k=10)
 train<-train[,2:80]
+write.csv(train,"trained_SVM.csv",row.names = F)
 res <- cor(train)
-res<-res[order(match(colnames(res),feature_selection$feature)),order(match(colnames(res),feature_selection$feature))]
+res<-res[order(feature_selection),order(feature_selection)]
 pdf("CorrelationPlot.pdf",width = 15, height = 15)
-corrplot(res)
+corrplot(res,type='lower',tl.pos='lt')
 dev.off()
