@@ -45,58 +45,15 @@ ind_2 = match(Labels_tab[ind,][ind_1,1],Final_root2020)
 Final_root2020 = Final_root2020[ind_2]
 length(Final_root2020)
 
-
-Clade_featurs=function(tree,tr1,tr,root,hdata){
-  Ntip1=length(tr1$tip.label)
-  Ntip2=length(tr$tip.label)
-  features=numeric(41)
-  Epitop=getEpitopeDist(match(tr$tip.label,hdata$tiplab), MappingData,hdata, Pdata, pastperiod=5, D0=14)
-  features[1]=root
-  features[2]=Ntip1
-  features[3]=Ntip2
-  features[4]=sackin(as.treeshape(tr),"pda")
-  features[5]=colless(as.treeshape(tr),"pda")
-  features[6]=var(node.depth.edgelength(tr)[1:length(tr$tip.label)])
-  features[7]=computeI2(tr)
-  features[8]=computeB1(tr)
-  features[9]=computeB2(tr)
-  features[10]=avgLadder(tr, normalise = TRUE)
-  features[11]=ILnumber(tr, normalise = TRUE)
-  features[12]=pitchforks(tr, normalise = TRUE)
-  features[13]=maxHeight(tr, normalise = TRUE)
-  features[14]=computeMaxWidth(tr)
-  features[15]=computeDelW(tr)
-  features[16]=computeStairs1(tr)
-  features[17]=computeStairs2(tr)
-  features[18]=computeCherries(tr, DOUBLE = FALSE)
-  features[19]=computeCherries(tr, DOUBLE = TRUE)
-  features[20]=BS(tr)
-  features[21]=descinm(tr,m=2)$W
-  features[22]=getstattest(tr)$W
-  features[23]=skewness(i_bl(tr))
-  features[24]=kurtosis(i_bl(tr))
-  features[25]=tips_pairwise_distance(tr)
-  features[26]=tips_pairwise_distance_max(tr)
-  features[27:31]=computeNetworkStats (tr, weight = FALSE, meanpath = FALSE, maxOnly = TRUE)
-  features[32:36]=computeNetworkStats (tr, weight = TRUE, meanpath = FALSE, maxOnly = TRUE)
-  features[37:40]=computeSpectralStats(tr, weight = c(FALSE, TRUE), adj = c(FALSE,TRUE), norm = FALSE, dist = FALSE, full = FALSE,
-                                       maxOnly = TRUE, unitMean = FALSE)
-  features[41] = diversificationRate(tr)
-  features[42]=median(Epitop)
-  features[43]=max(Epitop)
-  features[44]=mean(Epitop)
-  return(features)
-}
-
 #=================extract the features=================================================
-Data_Clade=matrix(0,length(Final_trimmedClades),44)
+Data_Clade=matrix(0,length(Final_trimmedClades),41)
 
 for(i in match(Final_root2020,Final_trimmedClades_root)){
   print(Final_trimmedClades_root[i])
   tr1=extract.clade(tree,Final_trimmedClades_root[i])
   tr=drop.tip(tr1,setdiff(tr1$tip.label,hdata$tiplab[Final_trimmedClades[[i]]]), trim.internal = TRUE)
   root=Final_trimmedClades_root[i]
-  Data_Clade[i,]=Clade_featurs(tree,tr1,tr,root,hdata)
+  Data_Clade[i,]=Clade_featurs(tree,tr1,tr,root)
 }
 Data_Clade = as.matrix(Data_Clade)
 Data_Clade = Data_Clade[-which(Data_Clade[,1]==0),]
@@ -107,7 +64,7 @@ colnames(Data_Clade) = c("Clade","numberTipsClade","numberTipsTrimmed","sackin",
                  "maxHeight","MaxWidth","DelW","Stairs1","Stairs2","Cherries","DoubleCherries","BS","descinm",
                  "getstattest","skewness","kurtosis","MeanPairwiseDist","MaxPairwiseDist","diameter", "WienerIndex", 
                  "betweenness", "closeness", "eigenvector","diameterW", "WienerIndexW", "betweennessW", "closenessW", 
-                 "eigenvectorW","minAdj","maxAdj","minLap","maxLap","DivR","medianEpi","maxEpi","meanEpi")
+                 "eigenvectorW","minAdj","maxAdj","minLap","maxLap","DivR")
 
 #====================================================================================
 #find the labels
@@ -129,7 +86,7 @@ df_names = c("Clade","numberTipsClade","numberTipsTrimmed","sackin",
              "maxHeight","MaxWidth","DelW","Stairs1","Stairs2","Cherries","DoubleCherries","BS","descinm",
              "getstattest","skewness","kurtosis","MeanPairwiseDist","MaxPairwiseDist","diameter", "WienerIndex", 
              "betweenness", "closeness", "eigenvector","diameterW", "WienerIndexW", "betweennessW", "closenessW", 
-             "eigenvectorW","minAdj","maxAdj","minLap","maxLap","DivR","medianEpi","maxEpi","meanEpi","numberTipsTrimmed_4","Labels")
+             "eigenvectorW","minAdj","maxAdj","minLap","maxLap","DivR","numberTipsTrimmed_4","Labels")
 names(Data_Clade) = df_names
 
 write.csv(Data_Clade,"Data5_1_3.csv")
